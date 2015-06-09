@@ -14,7 +14,7 @@ driver.maximize_window()
 time.sleep(1)
 
 driver.find_element_by_xpath('//*[@id="u1"]/a[6]').click()
-time.sleep(2)
+time.sleep(3)
 
 div=driver.find_element_by_xpath('//*[@id="passport-login-pop"]').find_element_by_name('userName')
 div.clear()
@@ -57,5 +57,7 @@ for i in inputs:
 print 'Files number is : %d'%n
 time.sleep(5)
 
-driver.close()
+for s in handles:
+    driver.switch_to_window(s)
+    driver.close()
     
