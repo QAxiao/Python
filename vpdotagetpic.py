@@ -47,10 +47,8 @@ class site():
     def getsale(self,hero):
         pattern=r'<span class="sell-c mr-10">(.*?)</span>(.*?)</p>\n<span class="">(.*?)</span>(.|\n)*?<div class="td">\n<span>(.*?)</span>'
         info=self.getheroinfo(hero)
-        print info
         patt=re.compile(pattern,re.S)
         contents=re.findall(patt,info)
-        print contents
         return contents
 
     def start(self):
