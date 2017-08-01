@@ -1,0 +1,43 @@
+# -*- coding:utf-8 -*-
+__author__ = 'sxm34916'
+
+import random
+import string
+import bisect
+import sys
+
+numbers = string.digits
+chars = string.ascii_lowercase
+
+
+def rand_strs(number, type='number'):
+    number = int(number)
+    rand_str = ''
+    try:
+        if type not in ('number', 'chars', 'number+char'):
+            raise ValueError
+        elif type == 'number':
+            rand_str = ''.join(random.choice(string.digits) for _ in range(number))
+        elif type == 'chars':
+            rand_str = ''.join(random.choice(string.ascii_letters) for _ in range(number))
+        else:
+            rand_str = ''.join(random.choice(string.digits + string.ascii_letters) for _ in range(number))
+        return rand_str
+    except ValueError:
+        print("type value is not valid! it should be in ('number','chars','number+char')")
+
+# print(''.join(random.choices(string.digits+string.ascii_letters,k=10)))
+
+# chsrs = ['a','b','c','d']
+# c = random.choices(chsrs,weights=[0.7,0.1,0.1,0.1],k=4)
+# d = random.choices(chsrs,k=4)
+#
+# print(c,d)
+#
+if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        print("Please input random string's length!")
+    elif len(sys.argv) == 2:
+        print(rand_strs(sys.argv[1]))
+    else:
+        print(rand_strs(sys.argv[1], type=sys.argv[2]))
