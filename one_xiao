@@ -21,7 +21,7 @@ def rand_strs(number, type='number'):
         elif type == 'chars':
             rand_str = ''.join(random.choice(string.ascii_letters) for _ in range(number))
         else:
-            rand_str = ''.join(random.choice(string.digits + string.ascii_letters) for _ in range(number))
+            rand_str = ''.join(random.choice(string.hexdigits) for _ in range(number))
         return rand_str
     except ValueError:
         print("type value is not valid! it should be in ('number','chars','number+char')")
